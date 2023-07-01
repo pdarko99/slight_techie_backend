@@ -42,11 +42,10 @@ app.put('/:id', (req, res, next) => {
 app.post('/', (req, res, next) => {
   console.log(req.body)
   try{
-    let data = JSON.parse(req.body)
-    blogs.push(data)
+    blogs.push(req.body)
     res.status(200).json({"message": "added successfully"})
   }catch(e){
-    res.status(400).json(e)
+    res.status(400).json({"message": "error", e})
   }
 
  
