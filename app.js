@@ -39,7 +39,7 @@ app.put('/:id', (req, res, next) => {
 })
 
 //allows users add a blog by 
-app.post('', (req, res, next) => {
+app.post('/', (req, res, next) => {
   console.log(req.body)
   try{
     let data = JSON.parse(req.body)
