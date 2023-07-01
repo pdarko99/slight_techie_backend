@@ -40,8 +40,15 @@ app.put('/:id', (req, res, next) => {
 
 //allows users add a blog by 
 app.post('', (req, res, next) => {
-  blogs = blogs.push(req.body)
-  res.status(200).json({"message": "added successfully"})
+  console.log(req.body)
+  try{
+    let data = JSON.parse(req.body)
+    blogs = blogs.push(data)
+    res.status(200).json({"message": "added successfully"})
+  }catch(e){
+    res.status(400).json(e)
+  }
+
  
 })
 
