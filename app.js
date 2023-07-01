@@ -20,7 +20,7 @@ app.get('/', (req, res, next) => {
 app.get('/:id', (req, res, next) => {
 
   let id = req.params.id
-  let blog = blogs.filter(i => i.id === id)
+  let blog = blogs.filter(i => i.id === +id)
  
   if(blog && blog.length){
     res.status(200).json(blog)
