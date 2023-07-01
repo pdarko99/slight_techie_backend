@@ -26,7 +26,7 @@ app.get('/:id', (req, res, next) => {
 })
 
 //allows users update a blog by id
-app.get('/:id', (req, res, next) => {
+app.put('/:id', (req, res, next) => {
 
   let id = req.params.id
   blogs = blogs.filter(i => i.id !== id)
@@ -35,14 +35,14 @@ app.get('/:id', (req, res, next) => {
 })
 
 //allows users add a blog by 
-app.get('/:id', (req, res, next) => {
+app.post('/:id', (req, res, next) => {
   blogs = blogs.push(req.body)
   res.status(200).json({"message": "added successfully"})
  
 })
 
 //allows users delete a blog by id
-app.get('/:id', (req, res, next) => {
+app.delete('/:id', (req, res, next) => {
 
   let id = req.params.id
   let blog = blogs.findIndex(i => i.id === id)
