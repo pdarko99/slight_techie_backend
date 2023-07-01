@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json())
 
 let blogs = [{
-  id:0,
+  id:"0",
   title: 'my_first_blog',
   author: "james"
 }]
@@ -20,7 +20,7 @@ app.get('/', (req, res, next) => {
 app.get('/:id', (req, res, next) => {
 
   let id = req.params.id
-  let blog = blogs.filter(i => i.id === +id)
+  let blog = blogs.filter(i => i.id === id)
  
   if(blog && blog.length){
     res.status(200).json(blog)
@@ -55,7 +55,7 @@ app.post('/', (req, res, next) => {
 app.put('/:id', (req, res, next) => {
 
   let id = req.params.id
-  let blog = blogs.findIndex(i => i.id === +id)
+  let blog = blogs.findIndex(i => i.id === id)
 
   if(blog !== -1){
     blogs[blog] = req.body
