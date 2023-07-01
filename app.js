@@ -29,8 +29,8 @@ app.get('/:id', (req, res, next) => {
   }
 })
 
-//allows users update a blog by id
-app.put('/:id', (req, res, next) => {
+//allows users delete a blog by id
+app.delete('/:id', (req, res, next) => {
 
   let id = req.params.id
   blogs = blogs.filter(i => i.id !== id)
@@ -38,7 +38,7 @@ app.put('/:id', (req, res, next) => {
  
 })
 
-//allows users add a blog by 
+//allows users add a blog 
 app.post('/', (req, res, next) => {
   console.log(req.body)
   try{
@@ -51,11 +51,11 @@ app.post('/', (req, res, next) => {
  
 })
 
-//allows users delete a blog by id
-app.delete('/:id', (req, res, next) => {
+//allows users update a blog by id
+app.put('/:id', (req, res, next) => {
 
   let id = req.params.id
-  let blog = blogs.findIndex(i => i.id === id)
+  let blog = blogs.findIndex(i => i.id === +id)
 
   if(blog !== -1){
     blogs[blog] = req.body
