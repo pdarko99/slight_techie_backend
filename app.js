@@ -5,7 +5,11 @@ const app = express();
 
 app.use(express.json())
 
-let blogs = []
+let blogs = [{
+  id:0,
+  title: 'my_first_blog',
+  author: "james"
+}]
 
 //allows users view all blogs
 app.get('/', (req, res, next) => {
@@ -35,7 +39,7 @@ app.put('/:id', (req, res, next) => {
 })
 
 //allows users add a blog by 
-app.post('/:id', (req, res, next) => {
+app.post('', (req, res, next) => {
   blogs = blogs.push(req.body)
   res.status(200).json({"message": "added successfully"})
  
